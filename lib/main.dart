@@ -18,15 +18,19 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(
+        child: Scaffold(
       body: Center(
-          child: Padding(
-              padding: const EdgeInsets.only(top: 48),
-              child: Column(
-                children: const <Widget>[
-                  SearchBar(),
-                ],
-              ))),
-    );
+        child: Column(
+          children: <Widget>[
+            SearchBar(
+              onSearch: (searchTerm) {
+                print('searchTerm = $searchTerm');
+              },
+            ),
+          ],
+        ),
+      ),
+    ));
   }
 }
